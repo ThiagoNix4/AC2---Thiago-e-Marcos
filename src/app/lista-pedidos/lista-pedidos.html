@@ -1,0 +1,18 @@
+<div>
+  <span>total: {{total}}</span>
+  <span>concluidas: {{concluidas}}</span>
+  <span>pendentes: {{pendentes}}</span>
+</div>
+
+<div *ngFor="let p of pedidos; let i = index">
+  <div [style.text-decoration]="p.status === 'entregue' ? 'line-through' : p.status === 'pronto' ? 'underline' : 'none'">
+    {{p.bulbasaur}} - {{p.charmander}} - {{p.squirtle}} - {{p.pikachu}} - {{p.mewtwo}}
+  </div>
+  <button (click)="aceitar(i)" style="background: white">Aceitar</button>
+  <button (click)="emPreparo(i)" style="background: blue">EmPreparo</button>
+  <button (click)="emRota(i)" style="background: yellow">EmRota</button>
+  <button (click)="entregue(i)" style="background: green">Entregue</button>
+  <button (click)="cancelar(i)" style="background: orange">CancelarPedido</button>
+</div>
+
+<a routerLink="/cadastrar">voltar ao cadastro</a>
